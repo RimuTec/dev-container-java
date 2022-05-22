@@ -2,6 +2,7 @@ FROM openjdk:17.0.1-bullseye
 # To check for newer JDK versions, see https://openjdk.java.net/, then 
 # https://hub.docker.com/_/openjdk. Last check on 16 jan 2022 [Manfred, 16jan2022]
 
+# Install some helpful tools. You can safely remove packages you don't like. [Manfred, 23may2022]
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
@@ -13,7 +14,6 @@ RUN apt-get update && \
 # iputils-ping: to support command 'ping' (https://linuxconfig.org/ping-command-not-found-on-ubuntu-20-04-focal-fossa-linux) [Manfred, 19sep2021]
 # net-tools: to support command such as 'arp', 'ifconfig', 'netstat', etc. (https://helpmanual.io/packages/apt/net-tools/) [Manfred, 26sep2021]
 # lsb-release: to support commmand 'lsb_release -a' [Manfred, 15jan2022]
-# You can safely remove the packages you don't want. [Manfred, 08oct2021]
 
 # Create non-root user (zero trust principle, least privileged principle)
 RUN groupadd -g 1000 -r dev && \
@@ -28,6 +28,9 @@ RUN groupadd -g 1000 -r dev && \
 # property "remoteUser". If you need to run commands as root to set up the dev container, use the
 # "RUN" directive in Dockerfile or add suitable code to the script ".devcontainer/entrypoint.sh". 
 # [Manfred, 16jan2022]
+
+# Install Apache Maven
+RUN apt install -y maven
 
 # Create working directory. Ownership will be changed in entrypoint.sh which
 # executes *after* the volume has been mounted.
