@@ -3,9 +3,9 @@ FROM openjdk:17.0.1-bullseye
 # https://hub.docker.com/_/openjdk. Last check on 16 jan 2022 [Manfred, 16jan2022]
 
 # Install some helpful tools. You can safely remove packages you don't like. [Manfred, 23may2022]
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y \
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y \
         procps \
         iputils-ping \
         net-tools \
