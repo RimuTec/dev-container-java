@@ -1,6 +1,6 @@
-FROM openjdk:17.0.2-bullseye
+FROM openjdk:18.0.1-bullseye
 # To check for newer JDK versions, see https://openjdk.java.net/, then 
-# https://hub.docker.com/_/openjdk. Last checked on 23 may 2022. [Manfred, 23may2022]
+# https://hub.docker.com/_/openjdk. Last checked on 06 jun 2022. [Manfred, 06jun2022]
 
 # Install some helpful tools. You can safely remove packages you don't like. [Manfred, 23may2022]
 RUN apt update && \
