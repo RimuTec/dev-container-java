@@ -9,7 +9,8 @@
        "eamodio.gitlens",
        "editorconfig.editorconfig",
        "shd101wyy.markdown-preview-enhanced",
-       "vscjava.vscode-java-pack"
+       "vscjava.vscode-java-pack",
+       "vscjava.vscode-maven"
    ],
    "remoteUser": "dev",
    "shutdownAction": "stopCompose"
