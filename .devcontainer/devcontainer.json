@@ -1,17 +1,29 @@
 {
    "name": "java-dev",
    "dockerComposeFile": [
-       "docker-compose.yml"
+      "docker-compose.yml"
    ],
    "service": "java-dev",
    "workspaceFolder": "/src",
-   "extensions": [
-       "eamodio.gitlens",
-       "editorconfig.editorconfig",
-       "shd101wyy.markdown-preview-enhanced",
-       "vscjava.vscode-java-pack",
-       "vscjava.vscode-maven"
-   ],
+   "customizations": {
+      "vscode": {
+         "extensions": [
+            "eamodio.gitlens",
+            "donjayamanne.githistory",
+            "editorconfig.editorconfig",
+            "github.copilot@prerelease",
+            "github.copilot-chat@prerelease",
+            "github.copilot-labs@prerelease",
+            "mhutchie.git-graph",
+            "ms-vsliveshare.vsliveshare",
+            "mutantdino.resourcemonitor",
+            "shd101wyy.markdown-preview-enhanced",
+            "usernamehw.errorlens",
+            "vscjava.vscode-java-pack",
+            "vscjava.vscode-maven"
+         ]
+      }
+   },
    "remoteUser": "dev",
    "shutdownAction": "stopCompose"
 }
