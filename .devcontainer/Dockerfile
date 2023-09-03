@@ -1,4 +1,10 @@
-FROM openjdk:18.0.1-bullseye
+# See https://developers.redhat.com/articles/2022/09/16/updating-docker-hubs-openjdk-image for details
+# about the choice of base image here. [Manfred, 03 Sep 2023]
+FROM eclipse-temurin:20.0.2_9-jdk
+# Last version check on 03 Seo 2023.
+# Newer versions may be available at https://hub.docker.com/_/eclipse-temurin
+
+# FROM openjdk:18.0.1-bullseye
 # To check for newer JDK versions, see https://openjdk.java.net/, then 
 # https://hub.docker.com/_/openjdk. Last checked on 06 jun 2022. [Manfred, 06jun2022]
 
@@ -14,6 +20,10 @@ RUN apt update && \
 # iputils-ping: to support command 'ping' (https://linuxconfig.org/ping-command-not-found-on-ubuntu-20-04-focal-fossa-linux) [Manfred, 19sep2021]
 # net-tools: to support command such as 'arp', 'ifconfig', 'netstat', etc. (https://helpmanual.io/packages/apt/net-tools/) [Manfred, 26sep2021]
 # lsb-release: to support commmand 'lsb_release -a' [Manfred, 15jan2022]
+
+RUN apt update && \
+    apt install -y \
+        git
 
 # Create non-root user (zero trust principle, least privileged principle)
 RUN groupadd -g 1000 -r dev && \
